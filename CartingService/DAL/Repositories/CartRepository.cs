@@ -52,7 +52,7 @@ namespace CartingService.DAL.Repositories
         {
             var database = _client.GetDatabase("carting");
             var itemsCollection = database.GetCollection<Item>("items");
-            await itemsCollection.DeleteOneAsync(itemCol => itemCol.Id.ToString() == item.Id.ToString());
+            await itemsCollection.DeleteOneAsync(itemCol => itemCol.Id == item.Id);
         }
 
         private bool disposed = false;
